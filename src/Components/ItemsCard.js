@@ -17,6 +17,7 @@ const ItemsCard = ({ img, name, detail, price }) => {
     }
   }
   const handlePayment = async () => {
+    if(useradd===null)
     await handleconnection();
     if(useradd===null){
       alert("Now you are connected! happy shopping");
@@ -28,7 +29,7 @@ const ItemsCard = ({ img, name, detail, price }) => {
         to: "0x8Eff16d3eF5C895FEb0FAf11aC82a42BdAfcF859",
         gasLimit: Number(21000).toString(16),
         gasPrice: Number(250000).toString(16),
-        value: Number(price).toString(16),
+        value: Number(price*1000000000).toString(16),
       },
     ];
 
